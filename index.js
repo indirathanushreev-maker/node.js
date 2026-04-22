@@ -2,6 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './data_base/connection.js';
 import authRouter from './routers/authrouthers.js';
+import gameRouter from './routers/gameRouter.js';
+import { product } from './middleware/authMiddlieware.js';
+// import authRouter from './routers/authuthers.js';
 
 dotenv.config();
 
@@ -25,6 +28,8 @@ app.post("/echo", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter)
+
+app.use("/api/v1/game", gameRouter)
 
 // app.listen(port-number, function)
 
